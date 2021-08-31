@@ -1,9 +1,9 @@
 import React from 'react'
-import TableRow from "./TableRow";
+import TableRow from './TableRow'
 
 function TableList() {
   return (
-    <table className="striped z-depth-5">
+    <table className="striped z-depth-3">
       <thead>
       <tr>
         <th>Дата</th>
@@ -13,11 +13,24 @@ function TableList() {
       </tr>
       </thead>
       <tbody>
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
+      <TableRow data={{
+        date: '28.12.1988',
+        title: 'Тортик',
+        quantity: 5,
+        distance: 402,
+      }} />
+      <TableRow data={{
+        date: '21.02.1998',
+        title: 'Котик',
+        quantity: 22,
+        distance: 1202,
+      }} />
+      <TableRow data={{
+        date: '11.07.1098',
+        title: 'Старичок',
+        quantity: 51,
+        distance: 34,
+      }} />
       </tbody>
     </table>
   )

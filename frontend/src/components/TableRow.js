@@ -1,12 +1,14 @@
 import React from 'react'
 
-function TableRow() {
+function TableRow({ data }) {
+  const { date, title, quantity, distance } = data
+
   return (
     <tr>
-      <th>{ '28.12.1988' }</th>
-      <th>{ 'Тортик' }</th>
-      <th>{ '5шт' }</th>
-      <th>{ '402м' }</th>
+      <th>{ date }</th>
+      <th>{ title }</th>
+      <th>{ quantity + 'шт' }</th>
+      <th>{ distance + 'м' }</th>
     </tr>
   )
 }
