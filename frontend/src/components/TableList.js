@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TableRow from './TableRow'
+import AppContext from '../context/AppContext'
+import Preloader from './Preloader'
 
 function TableList() {
-  return (
-    <table className="striped z-depth-3">
+  const { isPreloaderOpen, dataToRender } = useContext(AppContext)
+
+  const table = (
+    <table className="striped z-depth-2">
       <thead>
       <tr>
         <th>Дата</th>
@@ -13,26 +17,18 @@ function TableList() {
       </tr>
       </thead>
       <tbody>
-      <TableRow data={{
-        date: '28.12.1988',
-        title: 'Тортик',
-        quantity: 5,
-        distance: 402,
-      }} />
-      <TableRow data={{
-        date: '21.02.1998',
-        title: 'Котик',
-        quantity: 22,
-        distance: 1202,
-      }} />
-      <TableRow data={{
-        date: '11.07.1098',
-        title: 'Старичок',
-        quantity: 51,
-        distance: 34,
-      }} />
+      { dataToRender.map((item, index) => <TableRow key={index} data={item} /> ) }
       </tbody>
     </table>
+  )
+
+  return (
+    <>
+      { isPreloaderOpen && <Preloader/> }
+      { dataToRender.length === 0 && <h3>Not found data...</h3>}
+      { dataToRender.length > 0 && table }
+    </>
+
   )
 }
 
