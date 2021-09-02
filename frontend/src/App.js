@@ -34,6 +34,7 @@ function App() {
   const context = {
     tableData,
     dataToRender,
+    setDataToRender,
     isPreloaderOpen,
     handleFilterFormSubmit,
   }
